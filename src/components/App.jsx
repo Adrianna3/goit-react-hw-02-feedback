@@ -1,3 +1,5 @@
+import Counter from './Form/Form';
+
 export const App = () => {
   return (
     <div
@@ -10,11 +12,9 @@ export const App = () => {
     //   color: '#010101'
     // }}
     >
-      <h2>Please leave feedback</h2>
-      <button>Good</button>
-      <button>Neutral</button>
-      <button>Bad</button>
-      <h2>Statistics</h2>
+      <Counter/>
     </div>
   );
 };
+
+
