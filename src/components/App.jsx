@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Statistics } from './Statistics/Statistics';
-import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
+import { FeedbackOption } from './FeedbackOption/FeedbackOption';
 import { Section } from './Section/Section';
 import { Notification } from './Notification/Notification';
 
@@ -24,16 +24,14 @@ export class App extends Component {
   };
 
   updateGood = () => {
-    this.setState({ good: this.state.good + 1 });
+ this.setState(oldState => ({ ...oldState, good: oldState.good + 1 }));
   };
 
   updateNeutral = () => {
-    this.setState({ neutral: this.state.neutral + 1 });
-  };
+    this.setState(oldState => ({ ...oldState, neutral: oldState.neutral + 1 }));  };
 
   updateBad = () => {
-    this.setState({ bad: this.state.bad + 1 });
-  };
+this.setState(oldState => ({ ...oldState, bad: oldState.bad + 1 }));  };
 
   // updateFields = key => {
   //   console.log('idzie');
@@ -45,15 +43,15 @@ export class App extends Component {
       <div>
         <Section tittle="Please leave feedback">
           <div style={{ display: 'flex' }}>
-            <FeedbackOptions
+            <FeedbackOption
               options={'good'}
               onLeaveFeedback={this.updateGood}
             />
-            <FeedbackOptions
+            <FeedbackOption
               options={'neutral'}
               onLeaveFeedback={this.updateNeutral}
             />
-            <FeedbackOptions options={'bad'} onLeaveFeedback={this.updateBad} />
+            <FeedbackOption options={'bad'} onLeaveFeedback={this.updateBad} />
           </div>
         </Section>
 
